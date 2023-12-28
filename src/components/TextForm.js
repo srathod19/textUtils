@@ -26,18 +26,18 @@ export default function TextForm(props) {
     const [text, setText] = useState('');
     return (
         <>
-            <div className="container">
+            <div className="container" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h3>{props.title}</h3>
-                <div className="form-group">
+                <div className="form-group my-2">
                     <label htmlFor="myBox">Write here:</label>
-                    <textarea className="form-control" onChange={handleOnChange} value={text} id="myBox" rows="8"></textarea>
+                    <textarea className="form-control" onChange={handleOnChange} style={{ backgroundColor: props.mode === 'dark' ? 'black' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} value={text} id="myBox" rows="8"></textarea>
                 </div>
                 <button className="btn btn-primary" onClick={handleUpClick}>Convert to Upper Case</button>
                 <button className="btn btn-primary mx-2" onClick={handleDownClick}>Convert to Lower Case</button>
                 <button className="btn btn-primary mx-2" onClick={handleClear}>Clear text</button>
                 <button className="btn btn-primary mx-2" onClick={handleSpeach}>Read text</button>
-            </div>
-            <div className="container my-2">
+            </div >
+            <div className="container my-2" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h2>Your text summary</h2>
                 <p>{text.split(" ").length} words and {text.length} characters </p>
                 <p> {0.008 * text.split(" ").length} Minutes to  read </p>
